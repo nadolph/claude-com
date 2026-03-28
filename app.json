@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Claude",
+    "slug": "claude-com",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#000000"
+      },
+      "package": "com.claudecom.app"
+    }
+  }
+}
