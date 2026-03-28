@@ -12,3 +12,4 @@ web-build/
 .env
 .env.local
 bridge/node_modules/
+.claude/
