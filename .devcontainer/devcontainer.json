@@ -1,0 +1,8 @@
+{
+  "name": "claude-com",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "node",
+  "workspaceFolder": "/workspaces/claude-com"
+}
