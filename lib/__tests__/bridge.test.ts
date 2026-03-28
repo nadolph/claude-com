@@ -20,6 +20,10 @@ describe('createBridgeClient', () => {
     jest.clearAllMocks();
     jest.useFakeTimers();
     mockWs.readyState = 1;
+    mockWs.onopen = null;
+    mockWs.onmessage = null;
+    mockWs.onclose = null;
+    mockWs.onerror = null;
   });
 
   afterEach(() => {

@@ -12,25 +12,26 @@ export function createBridgeClient(callbacks: Callbacks) {
   let stopped = false;
 
   function connect() {
-    ws = new WebSocket(BRIDGE_URL);
+    const socket = new WebSocket(BRIDGE_URL);
+    ws = socket;
 
-    ws.onopen = () => callbacks.onConnect();
+    socket.onopen = () => callbacks.onConnect();
 
-    ws.onmessage = (event) => {
+    socket.onmessage = (event) => {
       try {
         const msg = JSON.parse(event.data);
         if (msg.type === 'pane') callbacks.onContent(msg.content);
       } catch {}
     };
 
-    ws.onclose = () => {
+    socket.onclose = () => {
       if (!stopped) {
         callbacks.onDisconnect();
         reconnectTimer = setTimeout(connect, 2000);
       }
     };
 
-    ws.onerror = () => ws?.close();
+    socket.onerror = () => socket.close();
   }
 
   function send(msg: object) {
